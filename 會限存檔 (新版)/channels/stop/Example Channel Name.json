@@ -1,0 +1,39 @@
+{
+    "author_name": "Example Channel Name",
+    "main_channel": "https://www.youtube.com/abcd",
+    "channelid": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "post_save_path": "/mnt/membership/folder/每月會限存檔",
+    "date_folder": 1,
+    "download_content_link": {
+        "enable": 1,
+        "folder_path": "/mnt/membership/folder/下載完成"
+    },
+    "cookies": {
+        "enable": 1,
+        "file_path": "cookies/cookie.txt",
+        "check_cookies": 1
+    },
+    "archive": {
+        "enable": 1,
+        "folder_path": "",
+        "file_name": "membership.sqlite"
+    },
+    "upload": {
+        "misskey": {
+            "enable": 1,
+            "token": "ABCDEFG",
+            "url": "https://example.com"
+        },
+        "discord": {
+            "enable": 1,
+            "webhook_url": "https://discord.com/api/webhooks/AAAAA/BBBBBBBBBB"
+        }
+    },
+    "notify": {
+        "discord": {
+            "enable": 1,
+            "type": "importent",
+            "webhook_url": "https://discord.com/api/webhooks/CCCCC/DDDDDDD"
+        }
+    }
+}
