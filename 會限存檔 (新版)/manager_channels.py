@@ -83,6 +83,7 @@ def edit_channel():
             break
         else:
             data["author_name"] = filename[0:-5]
+            break
 
     while True:
         #頻道ID
@@ -116,7 +117,10 @@ def edit_channel():
         input_tmp = input('請輸入連結(不輸入將保持原先內容)：')
         if input_tmp:
             data["main_channel"] = input_tmp
-        print(f'輸入的是：{data["main_channel"]}')
+        if data["main_channel"]:
+            print(f'輸入的是：{data["main_channel"]}')
+        else:
+            print(f'輸入的是：https://www.youtube.com/channel/{data["channelid"]}')
         doit = input("確認？Y/N：")
         if doit =='y' or doit == "Y":
             break
@@ -140,7 +144,7 @@ def edit_channel():
         clear_screen()
         text = f'是否要啟用年月分類\n例如：儲存路徑/年月/年月日/貼文\n不啟用則全部存在同一個資料夾\n\n目前為：{data["date_folder"]}'
         print(text)
-        data["date_folder"] = int(input("是否啟動：1.啟動 0.關閉"))
+        data["date_folder"] = int(input("是否啟動：1.啟動 0.關閉："))
         break
 
     while True:
