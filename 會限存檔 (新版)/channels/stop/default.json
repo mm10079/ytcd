@@ -1,0 +1,39 @@
+{
+    "author_name": "",
+    "main_channel": "",
+    "channelid": "",
+    "post_save_path": "",
+    "date_folder": 0,
+    "download_content_link": {
+        "enable": 0,
+        "folder_path": ""
+    },
+    "cookies": {
+        "enable": 0,
+        "file_path": "cookies/cookie.txt",
+        "check_cookies": 1
+    },
+    "archive": {
+        "enable": 0,
+        "folder_path": "",
+        "file_name": ""
+    },
+    "upload": {
+        "misskey": {
+            "enable": 0,
+            "token": "",
+            "url": ""
+        },
+        "discord": {
+            "enable": 0,
+            "webhook_url": ""
+        }
+    },
+    "notify": {
+        "discord": {
+            "enable": 0,
+            "type": "importent",
+            "webhook_url": ""
+        }
+    }
+}

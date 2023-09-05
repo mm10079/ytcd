@@ -1,0 +1,72 @@
+程式運行後，會自動搜尋所有在channels這個目錄的json檔案，如果不想被下載，請將json檔移出或放入stop資料夾
+
+如何添加要下載的頻道？
+
+1.首先在channels目錄中新建一個 名稱.json 檔案 (也可以直接複製並改名default.json)
+注意！json檔案的名稱將會用於存檔紀錄檢查與錯誤顯示，建議可以命名成頻道名稱
+
+2.右鍵編輯 名稱.json，並依照以下內容修改並填入json檔中：
+{
+    "author_name": "",
+    "main_channel": "",
+    "channelid": "",
+    "post_save_path": "",
+    "date_folder": 0,
+    "download_content_link": {
+        "enable": 0,
+        "folder_path": ""
+    },
+    "cookies": {
+        "enable": 0,
+        "file_path": "cookies/cookie.txt",
+        "check_cookies": 1
+    },
+    "archive": {
+        "enable": 0,
+        "folder_path": "",
+        "file_name": ""
+    },
+    "upload": {
+        "misskey": {
+            "enable": 0,
+            "token": "",
+            "url": ""
+        },
+        "discord": {
+            "enable": 0,
+            "webhook_url": ""
+        }
+    },
+    "notify": {
+        "discord": {
+            "enable": 0,
+            "type": "error",
+            "webhook_url": ""
+        }
+    }
+}
+
+author_name: 用於Discord訊息的副標題，建議用頻道名稱
+main_channel: 若有兩個頻道，可以輸入主頻道的網址，預設為同channelid的網址
+channelid: 請輸入頻道ID
+ - 範例:https://www.youtube.com/channel/UC5BzXtjnKt1fjEDjEJwx5JA/
+ - ID：UC5BzXtjnKt1fjEDjEJwx5JA
+ - 以下為錯誤範例：
+ - 範例：https://www.youtube.com/@harusaruhi_club
+ - ID：@harusaruhi_club
+
+ - - 如何取得頻道ID： 到頻道頁面 => 簡介標籤，統計資料下方的分享點開，選擇複製頻道ID即是
+
+所有路徑如果使用非絕對路徑(如G:\... 或 /mnt/...)，將會自動轉換為以腳本main.py所在的路徑底下的絕對路徑
+所有Windows路徑的右斜線\都需要加倍成\\(如G:\\folder\\name)，也可以改為左斜線/(如G:/folder/name)
+save_folder_path: 留空""為預設，預設為腳本所在位置的downloads底下，以json名稱建立的資料夾
+date_folder: 要使用請將enable改成1，將會限以 年月/年月日/會限檔案 的方式分類
+ - 注意！由於YT無法查詢到每篇文的日期，因此第一次下載的所有天數都會在當天下載的日期裡
+download_content_link: 要使用請將enable改成1，若貼文中有檔案連結，自動下載至位置folder_path 目前僅支援mediafire、dropbox
+cookies: 要使用請將enable改成1，要下載會限須使用，file_path請輸入包含txt名稱的路徑，啟動check_cookies後，會檢查貼文會限，若檢查不到會發送Cookies過期通知
+archive: 留空""為預設，要使用請將enable改成1，啟用會自動跳過下載過的序號，預設為腳本所在位置的archive底下，以json名稱建立的txt檔案
+file_name: 留空""為預設，命名請包含檔名.txt或.sqlite，預設為 檔名.txt
+upload: 要使用請將enable改成1，misskey token為帳號API，Discord網址為webhook網址
+ - 注意！要啟用上傳功能，儲存方式只支援Sqlite，使用txt功能無法自動上傳
+notify:  要使用請將enable改成1，Discord網址為webhook網址，留空""為預設，預設使用同upload的Discord網址，此功能用於進行特定狀態的通知，更改type獲得特定種類的通知，建議使用importent
+ - 共有 all,error,importent,download,post
